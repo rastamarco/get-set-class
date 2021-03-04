@@ -6,11 +6,13 @@
           <v-textarea outlined label="Descrições" v-model="stringDescription" placeholder="Copie e cole as Descrições..." rows="12" class="inputFirst"></v-textarea>
           <v-spacer></v-spacer>
           <v-textarea outlined label="Comentários" v-model="stringComents" placeholder="Copie e cole os Comentários..." rows="12" class="inputFirst"></v-textarea>
-          <v-textarea outlined label="Tamanho" v-model="stringSize" placeholder="Tamanhos..." rows="12" class="inputSecond"></v-textarea>
+          <v-textarea outlined label="Obrigatoriedade" v-model="stringRequired" placeholder="Obrigatoriedade..." rows="8" class="inputSecond"></v-textarea>
           <v-spacer></v-spacer>
-          <v-textarea outlined label="Campos" v-model="stringFields" placeholder="Campos..." rows="12" class="inputSecond"></v-textarea>
+          <v-textarea outlined label="Tamanho" v-model="stringSize" placeholder="Tamanhos..." rows="8" class="inputSecond"></v-textarea>
+          <v-spacer></v-spacer>
+          <v-textarea outlined label="Campos" v-model="stringFields" placeholder="Campos..." rows="8" class="inputSecond"></v-textarea>
           <v-spacer></v-spacer>  
-          <v-textarea outlined label="Tipo" v-model="stringType" placeholder="Tipo..." rows="12" class="inputSecond"></v-textarea> 
+          <v-textarea outlined label="Tipo" v-model="stringType" placeholder="Tipo..." rows="8" class="inputSecond"></v-textarea> 
           
      </v-col>
    </v-col>
@@ -47,6 +49,7 @@ export default class Home extends Vue {
   private stringSize: any = '';
   private stringType: any = '';
   private stringName: any = '';
+  private stringRequired: any = '';
 
   private isLoading: boolean = false;
 
@@ -56,11 +59,22 @@ export default class Home extends Vue {
       const stringOutputComents = await this.stringComents.split('\n');
       const stringOutputSize = await this.stringSize.split('\n');
       const stringOutputType = await this.stringType.split('\n');
+      const stringOutputRequired = await this.stringRequired.split('\n');
       for(var i = 0; i < stringOutputFields.length; i++){
-        this.stringFinal = this.stringFinal + 
-        '///<summary> '+this.stringName+' | '+ stringOutputDescription[i]+' | '+(i+1)+' | '+stringOutputSize[i]+' | '+ stringOutputType[i] + ' </summary>'+'\n'+
-        '///<remarks> '+ stringOutputComents[i] + ' </remarks>'+'\n'+
-        'public string '+ stringOutputFields[i] + ' { get; set; }'+'\n'
+        if (stringOutputRequired[i] === '(*)') {
+              this.stringFinal = this.stringFinal + 
+              '\n///<summary> '+this.stringName+' | '+ stringOutputDescription[i]+' | '+(i+1)+
+              ' | '+stringOutputSize[i]+' | '+ stringOutputType[i] + ' | Required  </summary>'+'\n'+
+              '///<remarks> '+ stringOutputComents[i] + ' </remarks>'+'\n'+
+              '[Required]'+'\n'+
+              'public string '+ stringOutputFields[i] + ' { get; set; }'+'\n'
+        } else {
+              this.stringFinal = this.stringFinal + 
+              '\n///<summary> '+this.stringName+' | '+ stringOutputDescription[i]+' | '+(i+1)+
+              ' | '+stringOutputSize[i]+' | '+ stringOutputType[i] + ' </summary>'+'\n'+
+              '///<remarks> '+ stringOutputComents[i] + ' </remarks>'+'\n'+
+              'public string '+ stringOutputFields[i] + ' { get; set; }'+'\n'
+        }
       }
   }
 
@@ -121,7 +135,7 @@ export default class Home extends Vue {
 }
 
 .inputSecond{
-  width: 30%;
+  width: 20%;
 }
 
 .safxName{
