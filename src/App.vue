@@ -1,7 +1,7 @@
 <template>
   <v-app >
     <v-app-bar app color="primary" dark>
-        <h2>Get & Set para Mastersaf</h2>
+        <h2>Mastersaf Safx</h2>
     </v-app-bar>
     <v-main class="app">
        <router-view></router-view>
