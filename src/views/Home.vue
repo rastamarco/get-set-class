@@ -1,6 +1,6 @@
 <template>
- <v-row>
-   <v-col cols="12" sm="12" md="12" class="app-prion-first">
+ <v-row id="initial">
+   <v-col cols="12" sm="12" md="12" class="app-prion-first" >
      <v-col cols="9" sm="9" md="9" class="card-inputs" >
           <!-- <small>Insira a Descrição <b>Exemplo: Código do Exemplo</b> </small> -->
           <v-textarea outlined label="Descrições" v-model="stringDescription" placeholder="Copie e cole as Descrições..." rows="12" class="inputFirst"></v-textarea>
@@ -19,7 +19,7 @@
    <v-col cols="12" sm="12" md="12" class="app-prion-second">
       <v-col cols="9" sm="9" md="9" class="card-inputs" >
         <v-text-field hide-details v-model="stringName" outlined label="Nome da Safx: " placeholder="Index" class="safxName"></v-text-field><br>
-        <v-btn @click="GetModel()" color="primary" class="safxName" > Sapeca! </v-btn>
+        <v-btn @click="GetModel()" color="primary" class="safxName" href="#result"> Sapeca! </v-btn>
       </v-col>
    </v-col>
    <v-col cols="12" sm="12" md="12" class="app-prion-second">
@@ -28,7 +28,7 @@
                                /// remarks Comentários /remarks <br>
                                public string COD_EXEMPLO { get; set; }</b> </small><br>
           <v-textarea outlined label="Resultado" v-model="stringFinal" placeholder="Resultado" rows="12"></v-textarea>
-          <v-btn @click="Clear()" color="primary"> Copiar e Limpar </v-btn>
+          <v-btn @click="Clear()" color="primary" id="result" href="#initial"> Copiar e Limpar </v-btn>
       </v-col>
    </v-col>
  </v-row>
@@ -50,8 +50,6 @@ export default class Home extends Vue {
   private stringType: any = '';
   private stringName: any = '';
   private stringRequired: any = '';
-
-  private isLoading: boolean = false;
 
   public async GetModel(): Promise<void>{
       const stringOutputFields = await this.stringFields.split('\n');
