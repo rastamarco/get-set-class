@@ -58,7 +58,7 @@ export default class Home extends Vue {
       const stringOutputType = await this.stringType.split('\n');
       for(var i = 0; i < stringOutputFields.length; i++){
         this.stringFinal = this.stringFinal + 
-        '///<summary> '+this.stringName+' | '+ stringOutputDescription[i]+' | '+i+1+' | '+stringOutputSize[i]+' | '+ stringOutputType[i] + ' </summary>'+'\n'+
+        '///<summary> '+this.stringName+' | '+ stringOutputDescription[i]+' | '+(i+1)+' | '+stringOutputSize[i]+' | '+ stringOutputType[i] + ' </summary>'+'\n'+
         '///<remarks> '+ stringOutputComents[i] + ' </remarks>'+'\n'+
         'public string '+ stringOutputFields[i] + ' { get; set; }'+'\n'
       }
