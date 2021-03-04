@@ -26,7 +26,7 @@
                                /// remarks Comentários /remarks <br>
                                public string COD_EXEMPLO { get; set; }</b> </small><br>
           <v-textarea outlined label="Resultado" v-model="stringFinal" placeholder="Resultado" rows="12"></v-textarea>
-          <v-btn @click="Clear()" color="primary"> Limpar </v-btn>
+          <v-btn @click="Clear()" color="primary"> Copiar e Limpar </v-btn>
       </v-col>
    </v-col>
  </v-row>
@@ -66,11 +66,13 @@ export default class Home extends Vue {
 
   public Clear(): void{
     copy(this.stringFinal);
+    alert('Resultado Copiado!');
     this.stringFields = null;
     this.stringDescription = null;
     this.stringComents = null;
     this.stringSize = null;
     this.stringType = null;
+    this.stringName = null
     this.stringFinal = '';
   }
 }
