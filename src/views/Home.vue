@@ -53,7 +53,7 @@ export default class Home extends Vue {
   public async GetModel(): Promise<void>{
       const stringOutputFields = await this.stringFields.split('\n');
       const stringOutputDescription = await this.stringDescription.split('\n');
-      const stringOutputComents = await this.stringComents.split('s\n');
+      const stringOutputComents = await this.stringComents.split('\n');
       const stringOutputSize = await this.stringSize.split('\n');
       const stringOutputType = await this.stringType.split('\n');
       for(var i = 0; i < stringOutputFields.length; i++){
