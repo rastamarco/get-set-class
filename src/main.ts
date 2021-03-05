@@ -8,10 +8,10 @@ import VueSweetAlert from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import VueAxios from 'vue-axios'
 import axios from 'axios'
-import VueCarousel from 'vue-carousel'
+import Vuelidate from 'vuelidate'
 
+Vue.use(Vuelidate)
 Vue.use(VueSweetAlert)
-Vue.use(VueCarousel)
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 
