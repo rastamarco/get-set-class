@@ -373,7 +373,7 @@ export default class Home extends Vue {
   }
 
   public Copy(): void{
-      if (this.stringFinal !== null){
+      if (this.stringFinal !== ''){
         copy(this.stringFinal);
         this.$swal('Copiado!', 'Cole em sua model, e só insira os comentários', 'success');
       } else {
