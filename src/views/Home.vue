@@ -151,7 +151,7 @@
               @blur="$v.stringType.$touch()"  
               class="inputSecond"></v-textarea> 
             <div class="btn-etl">
-              <small> <b> *O Desenvolvedor não garante 100% -- Verifique os campos Date</b> </small><br>
+              <small> <b> *O Desenvolvedor não garante 100% -- <br>Verifique os campos Date e Fixos (ex:0000)</b> </small><br>
               <v-btn @click="GetETL()" color="primary"> Sapeca! </v-btn>
             </div>
         </v-col>
@@ -339,22 +339,22 @@ export default class Home extends Vue {
                   default:
                     switch(stringOutputSize[i]){
                       case '003V004': 
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Format_003V004(),'+'\n';
+                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Get_Format(3, 4),'+'\n';
                         break;
                       case '008V004': 
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Format_008V004(),'+'\n';
+                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Get_Format(8, 4),'+'\n';
                         break;
                       case '011V006':
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Format_011V006(),'+'\n'; 
+                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Get_Format(11, 6),'+'\n'; 
                         break;
                       case '012V006': 
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Format_012V006(),'+'\n';
+                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Get_Format(12, 6),'+'\n';
                         break;
                       case '014V004':
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Format_014V004(),'+'\n'; 
+                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Get_Format(14, 4),'+'\n'; 
                         break;
                       case '015V002':
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Format_015V002(),'+'\n'; 
+                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Get_Format(15, 2),'+'\n'; 
                         break;
                       default:
                         const size = parseInt(stringOutputSize[i]); 
