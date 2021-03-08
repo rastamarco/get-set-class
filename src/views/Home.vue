@@ -2,11 +2,11 @@
  <v-row >
    <v-bottom-navigation v-model="step" color="primary" style="margin-top: 1%;" id="initial">
       <div class="btn-choose">
-        <v-btn large text @click="$v.$reset()">
+        <v-btn large text>
           <span>Model</span>
           <v-icon>mdi-file-document</v-icon>
         </v-btn>
-        <v-btn large text @click="$v.$reset()">
+        <v-btn large text >
           <span>ETL</span>
           <v-icon>mdi-file-compare</v-icon>
       </v-btn>
@@ -258,6 +258,13 @@ export default class Home extends Vue {
     return errors
   }
 
+   @Watch('step')
+  public async onPropertyChangedsChamber(value: any, oldValue: any): Promise < void > {
+      this.$v.$reset();
+      this.stringFinal = '';
+  }
+
+
   public async GetModel(): Promise<void>{
       this.$v.$touch()
       switch (this.canCopy()){
@@ -411,6 +418,7 @@ export default class Home extends Vue {
     this.stringName = ''
     this.stringFinal = '';
     this.stringStatus = '';
+    this.stringRequired = '';
   }
 }
 </script>
