@@ -264,7 +264,6 @@ export default class Home extends Vue {
       this.stringFinal = '';
   }
 
-
   public async GetModel(): Promise<void>{
       this.$v.$touch()
       switch (this.canCopy()){
