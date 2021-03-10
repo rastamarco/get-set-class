@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "npm start"
+    "build": "vue-cli-service build",
+    "start": "vue-cli-service start"
   },
   "dependencies": {
     "@types/vuelidate": "^0.7.13",
