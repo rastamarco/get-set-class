@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "start": "vue-cli-service start"
+    "start": "npm run serve"
   },
   "dependencies": {
     "@types/vuelidate": "^0.7.13",
