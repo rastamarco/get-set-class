@@ -345,22 +345,22 @@ export default class Home extends Vue {
                   default:
                     switch(stringOutputSize[i]){
                       case '003V004': 
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Get_Format(3, 4),'+'\n';
+                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(3, 4),'+'\n';
                         break;
                       case '008V004': 
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Get_Format(8, 4),'+'\n';
+                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(8, 4),'+'\n';
                         break;
                       case '011V006':
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Get_Format(11, 6),'+'\n'; 
+                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(11, 6),'+'\n'; 
                         break;
                       case '012V006': 
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Get_Format(12, 6),'+'\n';
+                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(12, 6),'+'\n';
                         break;
                       case '014V004':
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Get_Format(14, 4),'+'\n'; 
+                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(14, 4),'+'\n'; 
                         break;
                       case '015V002':
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.Get_Format(15, 2),'+'\n'; 
+                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(15, 2),'+'\n'; 
                         break;
                       default:
                         const size = parseInt(stringOutputSize[i]); 
