@@ -8,6 +8,7 @@ A model estará pronta!
 *Também com a opção de mapeamento dos Campos (ETL)
 
 *Não adicione os Comentários ainda, falta alguns ajustes
-
+### https://safx.herokuapp.com/ 
+ou Clone o Repositório e:
 ### npm install
 ### npm run serve
