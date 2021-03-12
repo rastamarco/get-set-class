@@ -326,6 +326,9 @@ export default class Home extends Vue {
             case '17 ZEROS ': 
                 this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "00000000000000000",\n`;
                 break;
+            case '17 vezes 0': 
+                this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "00000000000000000",\n`;
+                break;
             case 'FIXO 1106010001': 
                 this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "1106010001",\n`;
                 break;
@@ -337,6 +340,9 @@ export default class Home extends Vue {
                 break;
             case '8 zeros': 
                 this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "00000000",\n`;
+                break;
+            case 'fixo - 00001': 
+                this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "00001",\n`;
                 break;
             default: 
                 switch(stringOutputType[i]){
