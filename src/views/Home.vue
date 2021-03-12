@@ -329,6 +329,15 @@ export default class Home extends Vue {
             case 'FIXO 1106010001': 
                 this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "1106010001",\n`;
                 break;
+            case '38 FIXO': 
+                this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "38",\n`;
+                break;
+            case 'T': 
+                this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "T",\n`;
+                break;
+            case '8 zeros': 
+                this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "00000000",\n`;
+                break;
             default: 
                 switch(stringOutputType[i]){
                   case 'A':
@@ -344,6 +353,9 @@ export default class Home extends Vue {
                     break;
                   default:
                     switch(stringOutputSize[i]){
+                      case '003V002': 
+                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(3, 2),'+'\n';
+                        break;
                       case '003V004': 
                         this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(3, 4),'+'\n';
                         break;
