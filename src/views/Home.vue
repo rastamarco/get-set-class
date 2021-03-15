@@ -378,6 +378,7 @@ export default class Home extends Vue {
                          this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + 
                                             stringOutputFields[i] 
                                             + this.ReturnGetFormat(stringOutputSize[i])+'\n'; 
+                          break;
                       default:
                         const size = parseInt(stringOutputSize[i]); 
                         this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+`.PadLeft(${size}, '0'),\n` ;
