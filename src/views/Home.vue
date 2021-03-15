@@ -338,6 +338,9 @@ export default class Home extends Vue {
             case 'T': 
                 this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "T",\n`;
                 break;
+            case '8 ZEROS': 
+                this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "00000000",\n`;
+                break;
             case '8 zeros': 
                 this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "00000000",\n`;
                 break;
