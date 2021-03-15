@@ -326,6 +326,9 @@ export default class Home extends Vue {
             case '17 ZEROS ': 
                 this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "00000000000000000",\n`;
                 break;
+            case '17 ZEROS': 
+                this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "00000000000000000",\n`;
+                break;
             case '17 vezes 0': 
                 this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "00000000000000000",\n`;
                 break;
