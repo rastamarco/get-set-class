@@ -368,6 +368,9 @@ export default class Home extends Vue {
                       case '003V004': 
                         this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(3, 4),'+'\n';
                         break;
+                      case '004V004': 
+                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(4, 4),'+'\n';
+                        break;
                       case '008V004': 
                         this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(8, 4),'+'\n';
                         break;
