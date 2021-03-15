@@ -347,6 +347,15 @@ export default class Home extends Vue {
             case 'fixo - 00001': 
                 this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "00001",\n`;
                 break;
+            case 'FIXO 1': 
+                this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "1",\n`;
+                break;
+            case '18 ZEROS ': 
+                this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "000000000000000000",\n`;
+                break;
+            case '2': 
+                this.stringFinal = this.stringFinal + stringOutputFields[i] +` =  "2",\n`;
+                break;
             default: 
                 switch(stringOutputType[i]){
                   case 'A':
@@ -361,31 +370,11 @@ export default class Home extends Vue {
                     }
                     break;
                   default:
-                    switch(stringOutputSize[i]){
-                      case '003V002': 
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(3, 2),'+'\n';
-                        break;
-                      case '003V004': 
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(3, 4),'+'\n';
-                        break;
-                      case '004V004': 
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(4, 4),'+'\n';
-                        break;
-                      case '008V004': 
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(8, 4),'+'\n';
-                        break;
-                      case '011V006':
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(11, 6),'+'\n'; 
-                        break;
-                      case '012V006': 
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(12, 6),'+'\n';
-                        break;
-                      case '014V004':
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(14, 4),'+'\n'; 
-                        break;
-                      case '015V002':
-                        this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+'.GetFormat(15, 2),'+'\n'; 
-                        break;
+                    switch(stringOutputSize[i].length){
+                      case  7:
+                         this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + 
+                                            stringOutputFields[i] 
+                                            + this.ReturnGetFormat(stringOutputSize[i])+'\n'; 
                       default:
                         const size = parseInt(stringOutputSize[i]); 
                         this.stringFinal = this.stringFinal + stringOutputFields[i] + ' = ' + stringOutputFields[i]+`.PadLeft(${size}, '0'),\n` ;
@@ -442,6 +431,10 @@ export default class Home extends Vue {
     this.stringFinal = '';
     this.stringStatus = '';
     this.stringRequired = '';
+  }
+
+  public ReturnGetFormat(size: any): string{
+      return `.GetFormat(${parseInt(size.split('V')[0])}, ${parseInt(size.split('V')[1])}),`;
   }
 }
 </script>
